@@ -1,5 +1,5 @@
 * {
-  /* border: 2px solid red; */
+  border: 2px solid red;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -69,4 +69,17 @@ header {
 
 main {
   height: 65vh;
+  padding-top: 54px;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+}
+
+.info-container{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.info-container #info-head{
+    grid-column: 1/-1;
 }

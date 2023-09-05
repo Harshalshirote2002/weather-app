@@ -3,7 +3,6 @@ import createInfo from "./weatherInfo";
 // import weatherIcon from "./images/weather.png";
 
 export function createHeader() {
-    createInfo('Raipur');
   const header = document.createElement("header");
   const searchBar = document.createElement("div");
   const location = document.createElement("p");
