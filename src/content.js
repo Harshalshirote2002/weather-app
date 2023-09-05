@@ -16,7 +16,14 @@ img.src = searchIcon;
 let info = createInfo("delhi");
 
 async function searchBarEvent() {
-  info = await createInfo(location.value);
+  try {
+    info = await createInfo(location.value);
+  } catch (err) {
+    console.error(err);
+    if (err instanceof TypeError) {
+      alert("entered location not found!");
+    }
+  }
   updateDisplay();
 }
 
