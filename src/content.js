@@ -29,6 +29,11 @@ async function searchBarEvent() {
 
 export function createContent() {
   img.addEventListener("click", searchBarEvent);
+  searchBar.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      searchBarEvent();
+    }
+  });
   searchBar.append(location, img);
   header.append(headline, searchBar);
   return [header, info];
