@@ -7,10 +7,11 @@ async function getData(location) {
   let toBeReturned = [
     responseData.current.condition.text,
     responseData.current.cloud,
-    responseData.current.last_updated,
+    responseData.current.last_updated.slice(11),
     responseData.current.humidity,
     responseData.current.temp_c,
     responseData.current.feelslike_c,
+    responseData.location.name,
   ];
   return toBeReturned;
 }
@@ -18,14 +19,13 @@ async function getData(location) {
 export default async function createInfo(location) {
   const main = document.createElement("div");
   let value = await getData(location);
-  console.log(value);
   const head = document.createElement("div");
   const conditionText = document.createElement("div");
   const time = document.createElement("div");
   const humidity = document.createElement("div");
   const temperature = document.createElement("div");
   const feelsLike = document.createElement("div");
-  main.classList.add('info-container');
+  main.classList.add("info-container");
   head.id = "info-head";
   conditionText.id = "info-condition-text";
   time.id = "info-time";
@@ -33,12 +33,12 @@ export default async function createInfo(location) {
   temperature.id = "info-temp";
   feelsLike.id = "info-feels-like";
   //
-  conditionText.textContent = `value[0], ${value[1]}% cloud cover`;
+  conditionText.textContent = `${value[0]}, ${value[1]}% cloud cover`;
   time.textContent = value[2];
   humidity.textContent = `${value[3]}`;
   temperature.textContent = `${value[4]}`;
   feelsLike.textContent = `${value[5]}`;
-  head.textContent = location;
-  main.append(head, conditionText, time, humidity, temperature, feelsLike);
+  head.textContent = value[6];
+  main.append(head, conditionText, temperature, humidity, feelsLike, time);
   return main;
 }
