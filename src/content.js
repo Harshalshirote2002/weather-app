@@ -22,6 +22,7 @@ async function searchBarEvent() {
     console.error(err);
     if (err instanceof TypeError) {
       alert("entered location not found!");
+      return;
     }
   }
   updateDisplay();

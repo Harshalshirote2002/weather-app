@@ -148,3 +148,28 @@ main {
 .info-container #info-feels-like::after {
   content: "°C";
 }
+
+footer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 8px;
+  padding-top: 24px;
+  padding-bottom: 10px;
+  font-family: sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  position: fixed;
+  bottom: 0;
+}
+
+.fab{
+  color: black;
+  transition: 0.3s ease-in-out;
+  font-size: 24px;
+}
+
+.fab:hover{
+  transform: rotate(360deg) scale(1.2);
+}
